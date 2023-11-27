@@ -16,5 +16,6 @@
 ## Libraries
 
 ```bash
- formik, yup, react-router-native, react-router-web,
+ yarn add formik yup react-router-native react-router-web
+ yarn add @apollo/client graphql
 ```
