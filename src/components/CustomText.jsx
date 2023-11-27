@@ -1,13 +1,13 @@
 import React from "react";
 import { Text, StyleSheet } from "react-native";
-
+import { getCurrentFontFamily } from "../utils";
 import theme from "../theme";
 
 const styles = StyleSheet.create({
   text: {
     color: theme.colors.textPrimary,
     fontSize: theme.fontSizes.body,
-    fontFamily: theme.fonts.main,
+    fontFamily: getCurrentFontFamily(),
     fontWeight: theme.fontWeights.normal,
   },
   colorTextSecondary: {

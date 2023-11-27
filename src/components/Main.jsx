@@ -2,7 +2,14 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Route, Routes } from "react-router-native";
 import AppBar from "./AppBar";
-import { SignIn, Details, RepositoryList, Statistics, AboutUs } from "../pages";
+import {
+  SignIn,
+  Details,
+  RepositoryList,
+  Statistics,
+  AboutUs,
+  Profile,
+} from "../pages";
 
 const styles = StyleSheet.create({
   container: {
@@ -37,6 +44,10 @@ const Main = () => {
         <Route
           path="/about"
           element={<AboutUs />}
+        />
+        <Route
+          path="/profile"
+          element={<Profile />}
         />
         <Route
           path="/logout"

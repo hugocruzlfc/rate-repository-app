@@ -36,6 +36,10 @@ const AppBar = () => {
           path="/about"
         />
         <AppBarTap
+          label="Me"
+          path="/profile"
+        />
+        <AppBarTap
           label="Signin"
           path="/signin"
         />
