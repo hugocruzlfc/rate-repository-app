@@ -3,6 +3,7 @@ import { Pressable, StyleSheet, View } from "react-native";
 import { Formik } from "formik";
 import FormikTextInput from "./FormikTextInput";
 import CustomText from "./CustomText";
+import { loginValidationSchema } from "../utils";
 
 const styles = StyleSheet.create({
   button: {
@@ -17,9 +18,12 @@ const styles = StyleSheet.create({
 export const FormLogin = (props) => (
   <Formik
     initialValues={{ username: "", password: "" }}
-    onSubmit={(values) => console.log(values)}
+    onSubmit={(values) => {
+      console.log(values);
+    }}
+    validationSchema={loginValidationSchema}
   >
-    {({ handleSubmit, values }) => (
+    {({ handleSubmit }) => (
       <View>
         <FormikTextInput
           name="username"
