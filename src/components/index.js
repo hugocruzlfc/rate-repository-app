@@ -3,4 +3,3 @@ export { default as AppBarTap } from "./AppBarTap";
 export { default as CustomText } from "./CustomText";
 export { default as Main } from "./Main";
 export * from "./RepositoryItem";
-export { default as RepositoryList } from "./RepositoryList";

@@ -1,11 +1,12 @@
 import React from "react";
-import { TouchableWithoutFeedback, StyleSheet } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 import CustomText from "./CustomText";
 import theme from "../theme";
+import { Link } from "react-router-native";
 
 const styles = StyleSheet.create({
   tab: {
-    margin: 2,
+    margin: 5,
     color: theme.colors.textSecondary,
 
     // ...
@@ -13,11 +14,13 @@ const styles = StyleSheet.create({
   // ...
 });
 
-const AppBarTap = ({ label }) => {
+const AppBarTap = ({ label, path }) => {
   return (
-    <TouchableWithoutFeedback>
-      <CustomText style={styles.tab}>{label}</CustomText>
-    </TouchableWithoutFeedback>
+    <Pressable>
+      <Link to={path}>
+        <CustomText style={styles.tab}>{label}</CustomText>
+      </Link>
+    </Pressable>
   );
 };
 

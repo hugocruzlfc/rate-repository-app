@@ -1,7 +1,8 @@
 import React from "react";
-import { Text, StyleSheet, View } from "react-native";
-import RepositoryList from "./RepositoryList";
+import { StyleSheet, View } from "react-native";
+import { Route, Routes } from "react-router-native";
 import AppBar from "./AppBar";
+import { SignIn, Details, RepositoryList, Statistics, AboutUs } from "../pages";
 
 const styles = StyleSheet.create({
   container: {
@@ -15,7 +16,33 @@ const Main = () => {
   return (
     <View style={styles.container}>
       <AppBar />
-      <RepositoryList />
+      <Routes>
+        <Route
+          path="/"
+          exact
+          element={<RepositoryList />}
+        />
+        <Route
+          path="/signin"
+          element={<SignIn />}
+        />
+        <Route
+          path="/details"
+          element={<Details />}
+        />
+        <Route
+          path="/statistics"
+          element={<Statistics />}
+        />
+        <Route
+          path="/about"
+          element={<AboutUs />}
+        />
+        <Route
+          path="/logout"
+          element={<Details />}
+        />
+      </Routes>
     </View>
   );
 };
