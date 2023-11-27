@@ -15,11 +15,11 @@ const styles = StyleSheet.create({
   },
 });
 
-export const FormLogin = (props) => (
+export const FormLogin = ({ onSubmit, ...props }) => (
   <Formik
     initialValues={{ username: "", password: "" }}
     onSubmit={(values) => {
-      console.log(values);
+      onSubmit(values);
     }}
     validationSchema={loginValidationSchema}
   >

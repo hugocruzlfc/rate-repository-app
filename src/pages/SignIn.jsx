@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import CustomText from "../components/CustomText";
-import { FormLogin } from "../components";
+import { FormLogin, CustomText } from "../components";
+import { useSignIn } from "../hooks";
 
 const styles = StyleSheet.create({
   container: {
@@ -10,6 +10,18 @@ const styles = StyleSheet.create({
 });
 
 const SignIn = () => {
+  const [signIn] = useSignIn();
+
+  const onSubmit = async (values) => {
+    const { username, password } = values;
+    try {
+      const { authenticate } = await signIn({ username, password });
+      console.log(authenticate);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <CustomText
@@ -18,7 +30,7 @@ const SignIn = () => {
       >
         Sign In
       </CustomText>
-      <FormLogin />
+      <FormLogin onSubmit={onSubmit} />
     </View>
   );
 };

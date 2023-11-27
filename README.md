@@ -18,4 +18,9 @@
 ```bash
  yarn add formik yup react-router-native react-router-web
  yarn add @apollo/client graphql
+ yarn add dotenv
+
+ # Storage
+ npm install react-native-storage
+ npm install @react-native-async-storage/async-storage
 ```
