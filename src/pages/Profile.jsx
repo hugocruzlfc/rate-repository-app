@@ -1,12 +1,20 @@
 import { React } from "react";
-import { CurrentPlatform } from "../components";
+import { View, StyleSheet } from "react-native";
+import { CurrentPlatform, Me } from "../components";
+
+const styles = StyleSheet.create({
+  container: {
+    margin: 10,
+  },
+});
 
 const Profile = () => {
   return (
-    <div>
+    <View style={styles.container}>
       <h1>Profile</h1>
       <CurrentPlatform />
-    </div>
+      <Me />
+    </View>
   );
 };
 

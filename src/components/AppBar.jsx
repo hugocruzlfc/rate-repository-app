@@ -19,8 +19,6 @@ const styles = StyleSheet.create({
 const AppBar = () => {
   const { user, loading, handleLogout } = useAuthStorage();
 
-  console.log(user);
-
   if (loading) {
     return null;
   }
