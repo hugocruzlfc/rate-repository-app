@@ -3,6 +3,7 @@ import { View, StyleSheet, ScrollView } from "react-native";
 import Constants from "expo-constants";
 import AppBarTap from "./AppBarTap";
 import theme from "../theme";
+import { useAuthStorage } from "../context";
 
 const styles = StyleSheet.create({
   container: {
@@ -16,6 +17,14 @@ const styles = StyleSheet.create({
 });
 
 const AppBar = () => {
+  const { user, loading, handleLogout } = useAuthStorage();
+
+  console.log(user);
+
+  if (loading) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
       <ScrollView horizontal>
@@ -39,15 +48,18 @@ const AppBar = () => {
           label="Me"
           path="/profile"
         />
-        <AppBarTap
-          label="Signin"
-          path="/signin"
-        />
-
-        <AppBarTap
-          label="Logout"
-          path="/"
-        />
+        {!user?.me ? (
+          <AppBarTap
+            label="Signin"
+            path="/signin"
+          />
+        ) : (
+          <AppBarTap
+            label="Logout"
+            path="/"
+            onClick={handleLogout}
+          />
+        )}
       </ScrollView>
     </View>
   );

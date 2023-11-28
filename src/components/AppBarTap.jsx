@@ -14,10 +14,13 @@ const styles = StyleSheet.create({
   // ...
 });
 
-const AppBarTap = ({ label, path }) => {
+const AppBarTap = ({ label, path, onClick }) => {
   return (
     <Pressable>
-      <Link to={path}>
+      <Link
+        to={path}
+        onPress={onClick}
+      >
         <CustomText style={styles.tab}>{label}</CustomText>
       </Link>
     </Pressable>

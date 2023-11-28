@@ -10,19 +10,26 @@ import { getToken } from "./authStorage";
 const httpLink = new HttpLink({ uri: Constants.expoConfig.extra.apolloUri });
 
 const authMiddleware = new ApolloLink((operation, forward) => {
-  // add the authorization to the headers
-  operation.setContext(async ({ headers = {} }) => {
-    const token = await getToken();
-    headers = {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : "",
-    };
-    return {
-      headers,
-    };
-  });
+  return new Promise(async (resolve) => {
+    try {
+      const token = await getToken();
+      const headers = {
+        ...operation.getContext().headers,
+        Authorization: token ? `Bearer ${token}` : "",
+      };
 
-  return forward(operation);
+      operation.setContext({
+        headers,
+      });
+
+      const forwardResult = forward(operation);
+
+      resolve(forwardResult);
+    } catch (error) {
+      console.error("Error al obtener el token:", error);
+      resolve(forward(operation));
+    }
+  });
 });
 
 export const apolloClient = new ApolloClient({

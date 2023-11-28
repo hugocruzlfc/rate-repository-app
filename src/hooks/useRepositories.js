@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
-import { SERVER_URL } from "../utils";
 import { GET_REPOSITORIES } from "../graphql";
 
 export const useRepositories = () => {
