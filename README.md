@@ -24,3 +24,13 @@
  npm install react-native-storage
  npm install @react-native-async-storage/async-storage
 ```
+
+## Api Repository
+
+```bash
+https://github.com/fullstack-hy2020/rate-repository-api
+
+# Clone
+# Install dependencies
+# Read README.md
+```
