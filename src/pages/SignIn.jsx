@@ -16,7 +16,6 @@ const SignIn = () => {
     const { username, password } = values;
     try {
       const { authenticate } = await signIn({ username, password });
-      console.log(authenticate);
     } catch (e) {
       console.log(e);
     }

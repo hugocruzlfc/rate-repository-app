@@ -29,4 +29,23 @@ export const authStorage = new Storage({
   },
 });
 
+export const getToken = async () => {
+  try {
+    const { token } = await authStorage.load({
+      key: STORAGE_KEY.AUTH,
+    });
+    return token;
+  } catch (err) {
+    console.warn(err.message);
+    switch (err.name) {
+      case "NotFoundError":
+        // TODO;
+        return null;
+      case "ExpiredError":
+        // TODO
+        return null;
+    }
+  }
+};
+
 // https://github.com/sunnylqm/react-native-storage
