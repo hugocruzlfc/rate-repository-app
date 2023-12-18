@@ -1,6 +1,6 @@
 import React from "react";
 import { Pressable, StyleSheet, View } from "react-native";
-import CustomText from "./CustomText";
+import { CustomText } from "./CustomText";
 import theme from "../theme";
 import { Link } from "react-router-native";
 

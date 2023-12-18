@@ -23,6 +23,16 @@
  # Storage
  npm install react-native-storage
  npm install @react-native-async-storage/async-storage
+
+  # Testing
+  npx expo install jest-expo jest
+  yarn add --dev @testing-library/jest-native
+  yarn add --dev @testing-library/react-native
+  yarn add eslint-plugin-jest
+
+  # Doc
+  https://callstack.github.io/react-native-testing-library/docs/api-queries
+  https://jestjs.io/docs/expect
 ```
 
 ## Api Repository

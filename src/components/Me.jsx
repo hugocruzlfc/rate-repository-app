@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuthStorage } from "../context";
 import { View, StyleSheet } from "react-native";
-import CustomText from "./CustomText";
+import { CustomText } from "./CustomText";
 
 const styles = StyleSheet.create({
   reviews: {

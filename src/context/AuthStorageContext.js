@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useApolloClient } from "@apollo/client";
 import { useMe } from "../hooks";
 import { authStorage, STORAGE_KEY } from "../utils";
 

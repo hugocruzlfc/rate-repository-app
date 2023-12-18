@@ -30,33 +30,36 @@ const AppBar = () => {
           label="Repositories"
           path="/"
         />
-        <AppBarTap
-          label="Details"
-          path="/details"
-        />
-        <AppBarTap
-          label="Statistics"
-          path="/statistics"
-        />
-        <AppBarTap
-          label="About Us"
-          path="/about"
-        />
-        <AppBarTap
-          label="Me"
-          path="/profile"
-        />
+
         {!user?.me ? (
           <AppBarTap
             label="Signin"
             path="/signin"
           />
         ) : (
-          <AppBarTap
-            label="Logout"
-            path="/"
-            onClick={handleLogout}
-          />
+          <>
+            <AppBarTap
+              label="Details"
+              path="/details"
+            />
+            <AppBarTap
+              label="Statistics"
+              path="/statistics"
+            />
+            <AppBarTap
+              label="About Us"
+              path="/about"
+            />
+            <AppBarTap
+              label="Me"
+              path="/profile"
+            />
+            <AppBarTap
+              label="Logout"
+              path="/"
+              onClick={handleLogout}
+            />
+          </>
         )}
       </ScrollView>
     </View>

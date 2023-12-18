@@ -9,6 +9,7 @@ import {
   Statistics,
   AboutUs,
   Profile,
+  RepositoryDetail,
 } from "../pages";
 
 const styles = StyleSheet.create({
@@ -48,6 +49,10 @@ const Main = () => {
         <Route
           path="/profile"
           element={<Profile />}
+        />
+        <Route
+          path="/repository/:id"
+          element={<RepositoryDetail />}
         />
         <Route
           path="/logout"

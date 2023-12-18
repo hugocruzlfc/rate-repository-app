@@ -1,6 +1,8 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
-import CustomText from "./CustomText";
+import { Image, StyleSheet, View, Pressable } from "react-native";
+import { CustomText } from "./CustomText";
+import { GitHubButton } from "./GitHubButton";
+import { useNavigate, useParams } from "react-router-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -43,6 +45,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     marginTop: 10,
+    marginBottom: 10,
   },
   bodyFooterItem: {
     display: "flex",
@@ -62,46 +65,86 @@ const styles = StyleSheet.create({
 const Separator = () => <View style={styles.separator} />;
 
 export const RepositoryItem = ({ item }) => {
+  const navigate = useNavigate();
+  const { id } = useParams();
+
+  const onPressFunction = () => {
+    navigate(`/repository/${item.id}`);
+  };
+
   return (
-    <View style={styles.container}>
-      <View style={styles.bodyContainer}>
-        <Image
-          style={styles.bodyLogo}
-          source={{ uri: item.ownerAvatarUrl }}
-        />
-        <View style={styles.bodyDescription}>
-          <CustomText style={[styles.bodyName, styles.bodyDescriptionItem]}>
-            {item.fullName}
-          </CustomText>
-          <CustomText style={styles.bodyDescriptionItem}>
-            {item.description}
-          </CustomText>
-          <CustomText style={[styles.bodyDescriptionItem, styles.bodyLanguage]}>
-            {item.language}
-          </CustomText>
+    <Pressable onPress={onPressFunction}>
+      <View
+        style={styles.container}
+        onT
+      >
+        <View style={styles.bodyContainer}>
+          <Image
+            style={styles.bodyLogo}
+            source={{ uri: item.ownerAvatarUrl }}
+          />
+          <View style={styles.bodyDescription}>
+            <CustomText
+              style={[styles.bodyName, styles.bodyDescriptionItem]}
+              testID="fullName"
+            >
+              {item.fullName}
+            </CustomText>
+            <CustomText
+              style={styles.bodyDescriptionItem}
+              testID="description"
+            >
+              {item.description}
+            </CustomText>
+            <CustomText
+              style={[styles.bodyDescriptionItem, styles.bodyLanguage]}
+              testID="language"
+            >
+              {item.language}
+            </CustomText>
+          </View>
         </View>
+        <View style={styles.bodyFooter}>
+          <View style={styles.bodyFooterItem}>
+            <CustomText
+              style={styles.bodyName}
+              testID="stargazersCount"
+            >
+              {item.stargazersCount}
+            </CustomText>
+            <CustomText>⭐️</CustomText>
+          </View>
+          <View style={styles.bodyFooterItem}>
+            <CustomText
+              style={styles.bodyName}
+              testID="forksCount"
+            >
+              {item.forksCount}
+            </CustomText>
+            <CustomText>🍴</CustomText>
+          </View>
+          <View style={styles.bodyFooterItem}>
+            <CustomText
+              style={styles.bodyName}
+              testID="reviewCount"
+            >
+              {item.reviewCount}
+            </CustomText>
+            <CustomText>👁</CustomText>
+          </View>
+          <View style={styles.bodyFooterItem}>
+            <CustomText
+              style={styles.bodyName}
+              testID="ratingAverage"
+            >
+              {item.ratingAverage}
+            </CustomText>
+            <CustomText>📦</CustomText>
+          </View>
+        </View>
+        {id && <GitHubButton url={item.url} />}
+        {!id && <Separator />}
       </View>
-      <View style={styles.bodyFooter}>
-        <View style={styles.bodyFooterItem}>
-          <CustomText style={styles.bodyName}>
-            {item.stargazersCount}
-          </CustomText>
-          <CustomText>⭐️</CustomText>
-        </View>
-        <View style={styles.bodyFooterItem}>
-          <CustomText style={styles.bodyName}>{item.forksCount}</CustomText>
-          <CustomText>🍴</CustomText>
-        </View>
-        <View style={styles.bodyFooterItem}>
-          <CustomText style={styles.bodyName}>{item.reviewCount}</CustomText>
-          <CustomText>👁</CustomText>
-        </View>
-        <View style={styles.bodyFooterItem}>
-          <CustomText style={styles.bodyName}>{item.ratingAverage}</CustomText>
-          <CustomText>📦</CustomText>
-        </View>
-      </View>
-      <Separator />
-    </View>
+    </Pressable>
   );
 };

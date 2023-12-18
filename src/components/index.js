@@ -1,10 +1,12 @@
 export { default as AppBar } from "./AppBar";
 export { default as AppBarTap } from "./AppBarTap";
-export { default as CustomText } from "./CustomText";
+export * from "./CustomText";
 export * from "./FormLogin";
 export { default as FormikTextInput } from "./FormikTextInput";
+export * from "./GitHubButton";
 export { default as Main } from "./Main";
 export * from "./Me";
 export * from "./Platform";
 export * from "./RepositoryItem";
+export { default as RepositoryListContainer } from "./RepositoryListContainer";
 export { default as TextInput } from "./TextInput";
