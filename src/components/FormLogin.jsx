@@ -2,7 +2,7 @@ import React from "react";
 import { Pressable, StyleSheet, View } from "react-native";
 import { Formik } from "formik";
 import FormikTextInput from "./FormikTextInput";
-import CustomText from "./CustomText";
+import { CustomText } from "./CustomText";
 import { loginValidationSchema } from "../utils";
 
 const styles = StyleSheet.create({

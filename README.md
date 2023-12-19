@@ -19,6 +19,7 @@
  yarn add formik yup react-router-native react-router-web
  yarn add @apollo/client graphql
  yarn add dotenv
+ yarn add date-fns
 
  # Storage
  npm install react-native-storage

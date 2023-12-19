@@ -1,6 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, View, Pressable } from "react-native";
 import { CustomText } from "./CustomText";
+import { Reviews } from "./Reviews";
 import { GitHubButton } from "./GitHubButton";
 import { useNavigate, useParams } from "react-router-native";
 
@@ -52,17 +53,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
   },
-  separator: {
-    //marginVertical: 8,
-    // borderBottomColor: "#737373",
-    // borderBottomWidth: StyleSheet.hairlineWidth,
-    height: 10,
-    backgroundColor: "#C8C4C3",
-    marginTop: 20,
-  },
 });
-
-const Separator = () => <View style={styles.separator} />;
 
 export const RepositoryItem = ({ item }) => {
   const navigate = useNavigate();
@@ -143,7 +134,8 @@ export const RepositoryItem = ({ item }) => {
           </View>
         </View>
         {id && <GitHubButton url={item.url} />}
-        {!id && <Separator />}
+
+        {id && <Reviews repositoryId={id} />}
       </View>
     </Pressable>
   );

@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { useField } from "formik";
 
 import TextInput from "./TextInput";
-import CustomText from "./CustomText";
+import { CustomText } from "./CustomText";
 
 const styles = StyleSheet.create({
   errorText: {
