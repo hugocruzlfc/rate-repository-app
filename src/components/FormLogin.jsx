@@ -28,10 +28,12 @@ export const FormLogin = ({ onSubmit, ...props }) => (
         <FormikTextInput
           name="username"
           placeholder="Username"
+          type="text"
         />
         <FormikTextInput
           name="password"
           placeholder="Password"
+          type="text"
         />
         <Pressable
           style={styles.button}
