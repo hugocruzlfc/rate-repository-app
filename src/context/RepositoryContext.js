@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useRepositories } from "../hooks";
 import { Text } from "react-native";
 
@@ -15,7 +15,14 @@ export const useRepositoryContext = () => {
 };
 
 export const RepositoryProvider = ({ children }) => {
-  const { repositories, loading, error } = useRepositories();
+  const [filter, setFilter] = useState({
+    orderBy: "CREATED_AT",
+    orderDirection: "DESC",
+  });
+  const { repositories, loading, error } = useRepositories(
+    filter.orderBy,
+    filter.orderDirection
+  );
 
   if (loading) {
     return <Text>Loading...</Text>;
@@ -25,10 +32,15 @@ export const RepositoryProvider = ({ children }) => {
     return <Text>Error: {error}</Text>;
   }
 
+  const setRepositoriesFilter = (filter) => {
+    setFilter(filter);
+  };
+
   return (
     <RepositoryContext.Provider
       value={{
         repositories,
+        setRepositoriesFilter,
       }}
     >
       {children}
