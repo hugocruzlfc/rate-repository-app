@@ -10,6 +10,7 @@ import {
   Profile,
   RepositoryDetail,
   CreateReview,
+  SignUp,
 } from "../pages";
 
 const styles = StyleSheet.create({
@@ -33,6 +34,10 @@ const Main = () => {
         <Route
           path="/signin"
           element={<SignIn />}
+        />
+        <Route
+          path="/signup"
+          element={<SignUp />}
         />
         <Route
           path="/details"

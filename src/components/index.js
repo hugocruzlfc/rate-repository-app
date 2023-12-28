@@ -3,6 +3,7 @@ export { default as AppBarTap } from "./AppBarTap";
 export * from "./CreateReviewForm";
 export * from "./CustomText";
 export * from "./FormLogin";
+export * from "./FormRegister";
 export { default as FormikTextInput } from "./FormikTextInput";
 export * from "./GitHubButton";
 export * from "./ItemSeparator";

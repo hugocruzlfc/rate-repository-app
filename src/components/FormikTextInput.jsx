@@ -32,7 +32,7 @@ const FormikTextInput = ({ name, type, ...props }) => {
         onBlur={() => helpers.setTouched(true)}
         value={field.value}
         error={showError}
-        secureTextEntry={name === "password"}
+        secureTextEntry={name === "password" || name === "passwordConfirmation"}
         {...props}
       />
       {showError && (

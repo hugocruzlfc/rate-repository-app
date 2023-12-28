@@ -32,10 +32,16 @@ const AppBar = () => {
         />
 
         {!user?.me ? (
-          <AppBarTap
-            label="Signin"
-            path="/signin"
-          />
+          <>
+            <AppBarTap
+              label="Signin"
+              path="/signin"
+            />
+            <AppBarTap
+              label="Signup"
+              path="/signup"
+            />
+          </>
         ) : (
           <>
             <AppBarTap

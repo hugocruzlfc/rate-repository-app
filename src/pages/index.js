@@ -5,3 +5,4 @@ export { default as Profile } from "./Profile";
 export * from "./RepositoryDetail";
 export * from "./RepositoryList";
 export { default as SignIn } from "./SignIn";
+export { default as SignUp } from "./SignUp";
