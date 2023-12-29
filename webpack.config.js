@@ -7,7 +7,10 @@ module.exports = async function (env, argv) {
   config.module.rules.push({
     test: /\.js$/,
     loader: "babel-loader",
-    include: [path.join(__dirname, "node_modules/react-router-native")],
+    include: [
+      path.join(__dirname, "node_modules/react-router-native"),
+      path.resolve(__dirname, "node_modules/react-native-vector-icons"),
+    ],
   });
 
   return config;

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useRepositories } from "../hooks";
 import { Text } from "react-native";
+import { useDebounce } from "use-debounce";
 
 export const RepositoryContext = React.createContext();
 
@@ -19,9 +20,13 @@ export const RepositoryProvider = ({ children }) => {
     orderBy: "CREATED_AT",
     orderDirection: "DESC",
   });
+  const [searchValue, setSearchValue] = useState("");
+  const [searchKeyword] = useDebounce(searchValue, 500);
+
   const { repositories, loading, error } = useRepositories(
     filter.orderBy,
-    filter.orderDirection
+    filter.orderDirection,
+    searchKeyword
   );
 
   if (loading) {
@@ -36,11 +41,18 @@ export const RepositoryProvider = ({ children }) => {
     setFilter(filter);
   };
 
+  const onChangeSearch = (query) => {
+    setSearchValue(query);
+  };
+
   return (
     <RepositoryContext.Provider
       value={{
         repositories,
+        searchValue,
+        loading,
         setRepositoriesFilter,
+        onChangeSearch,
       }}
     >
       {children}

@@ -5,7 +5,7 @@ import AppBar from "./AppBar";
 import {
   SignIn,
   Details,
-  RepositoryList,
+  Repositories,
   AboutUs,
   Profile,
   RepositoryDetail,
@@ -29,7 +29,7 @@ const Main = () => {
         <Route
           path="/"
           exact
-          element={<RepositoryList />}
+          element={<Repositories />}
         />
         <Route
           path="/signin"
