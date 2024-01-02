@@ -45,3 +45,9 @@ https://github.com/fullstack-hy2020/rate-repository-api
 # Install dependencies
 # Read README.md
 ```
+
+## Other
+
+```bash
+ (Resources)[https://github.com/jondot/awesome-react-native]
+```
