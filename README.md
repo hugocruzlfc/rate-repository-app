@@ -1,11 +1,12 @@
 ## Utils
 
+### React Native Debugger
+
+[Debugger installation](https://github.com/jhen0409/react-native-debugger#installation)
+
 ```bash
 ## Install dependencies
  yarn install
-
- ### React Native Debugger
- [Debugger installation](https://github.com/jhen0409/react-native-debugger#installation)
 
   # Install React Native Debugger
  brew update && brew install --cask react-native-debugger
@@ -32,15 +33,16 @@
   yarn add eslint-plugin-jest
 
   # Doc
-  [Testing api queries](https://callstack.github.io/react-native-testing-library/docs/api-queries)
-  [Jest Doc](https://jestjs.io/docs/expect)
 ```
+
+[Jest Doc](https://jestjs.io/docs/expect)
+[Testing api queries](https://callstack.github.io/react-native-testing-library/docs/api-queries)
 
 ## Api Repository
 
-```bash
 [Api code](https://github.com/fullstack-hy2020/rate-repository-api)
 
+```bash
 # Clone
 # Install dependencies
 # Read README.md
@@ -48,6 +50,4 @@
 
 ## Other
 
-```bash
- [Resources](https://github.com/jondot/awesome-react-native)
-```
+[Resources](https://github.com/jondot/awesome-react-native)
