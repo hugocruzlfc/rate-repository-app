@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { format } from "date-fns";
 import { CustomText } from "./CustomText";
+import { ActionsReviews } from "./ActionsReview";
 
 const styles = StyleSheet.create({
   container: {
@@ -44,15 +45,23 @@ export const Review = ({ review }) => {
   const formatDate = format(review?.createdAt, "dd.MM.yyyy");
 
   return (
-    <View style={styles.container}>
-      <CustomText style={styles.rate}>{review.rating}</CustomText>
-      <View style={styles.bodyContainer}>
-        <CustomText style={styles.name}>
-          {review?.user?.username ?? review.repository.fullName}
-        </CustomText>
-        <CustomText style={styles.date}>{formatDate}</CustomText>
-        <CustomText style={styles.text}>{review.text}</CustomText>
+    <View>
+      <View style={styles.container}>
+        <CustomText style={styles.rate}>{review.rating}</CustomText>
+        <View style={styles.bodyContainer}>
+          <CustomText style={styles.name}>
+            {review?.user?.username ?? review.repository.fullName}
+          </CustomText>
+          <CustomText style={styles.date}>{formatDate}</CustomText>
+          <CustomText style={styles.text}>{review.text}</CustomText>
+        </View>
       </View>
+      {review?.repository?.url && (
+        <ActionsReviews
+          repositoryUrl={review.repository.url}
+          reviewId={review.id}
+        />
+      )}
     </View>
   );
 };

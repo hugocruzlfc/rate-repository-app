@@ -1,6 +1,7 @@
 import React from "react";
-import { Linking, Pressable, StyleSheet, View } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 import { CustomText } from "./CustomText";
+import { useOpenUrl } from "../hooks";
 
 const styles = StyleSheet.create({
   container: {
@@ -20,13 +21,12 @@ const styles = StyleSheet.create({
 });
 
 export const GitHubButton = ({ url }) => {
-  const onPressLearnMore = () => {
-    Linking.openURL(url);
-  };
+  const openUrlInNewTab = useOpenUrl(url);
+
   return (
     <View style={styles.container}>
       <Pressable
-        onPress={onPressLearnMore}
+        onPress={openUrlInNewTab}
         style={styles.button}
       >
         <CustomText style={styles.text}>Open in GitHub</CustomText>
