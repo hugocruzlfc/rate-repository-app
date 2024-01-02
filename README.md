@@ -51,3 +51,11 @@
 ## Other
 
 [Resources](https://github.com/jondot/awesome-react-native)
+
+## ENV Variables
+
+```bash
+ENV=development
+APOLLO_URI="http://192.168.1.134:4000/graphql"
+
+```
