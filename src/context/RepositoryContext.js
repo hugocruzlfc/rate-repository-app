@@ -15,6 +15,8 @@ export const useRepositoryContext = () => {
   return context;
 };
 
+const FIRST_REPOSITORIES = 10;
+
 export const RepositoryProvider = ({ children }) => {
   const [filter, setFilter] = useState({
     orderBy: "CREATED_AT",
@@ -23,7 +25,8 @@ export const RepositoryProvider = ({ children }) => {
   const [searchValue, setSearchValue] = useState("");
   const [searchKeyword] = useDebounce(searchValue, 500);
 
-  const { repositories, loading, error } = useRepositories(
+  const { repositories, loading, error, fetchMore } = useRepositories(
+    FIRST_REPOSITORIES,
     filter.orderBy,
     filter.orderDirection,
     searchKeyword
@@ -53,6 +56,7 @@ export const RepositoryProvider = ({ children }) => {
         loading,
         setRepositoriesFilter,
         onChangeSearch,
+        fetchMore,
       }}
     >
       {children}

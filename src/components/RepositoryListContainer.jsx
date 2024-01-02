@@ -3,12 +3,10 @@ import { FlatList, StyleSheet, View } from "react-native";
 import { RepositoryItem } from "./RepositoryItem";
 import { ItemSeparator } from "./ItemSeparator";
 import { CustomText } from "./CustomText";
-import { useRepositoryContext } from "../context";
 import { FilterRepository } from "./FilterRepository";
+import { v4 as uuidv4 } from "uuid";
 
-export const RepositoryListContainer = () => {
-  const { repositories } = useRepositoryContext();
-
+export const RepositoryListContainer = ({ repositories, onEndReach }) => {
   const repositoryNodes = repositories
     ? repositories?.edges.map((edge) => edge.node)
     : [];
@@ -28,7 +26,9 @@ export const RepositoryListContainer = () => {
         data={repositoryNodes}
         ItemSeparatorComponent={ItemSeparator}
         renderItem={({ item }) => <RepositoryItem item={item} />}
-        keyExtractor={(item) => item.id}
+        keyExtractor={() => uuidv4()}
+        onEndReached={onEndReach}
+        onEndReachedThreshold={0.5}
         // other props
       />
     </View>

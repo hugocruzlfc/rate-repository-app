@@ -1,17 +1,22 @@
 import { gql } from "@apollo/client";
-import { REPOSITORY_FRAGMENT } from "./fragments";
+import { REPOSITORY_FRAGMENT, PAGE_INFO_FRAGMENT } from "./fragments";
 
 export const GET_REPOSITORIES = gql`
   query (
+    $first: Int
     $orderBy: AllRepositoriesOrderBy
     $orderDirection: OrderDirection
     $searchKeyword: String
   ) {
     repositories(
+      first: $first
       orderBy: $orderBy
       orderDirection: $orderDirection
       searchKeyword: $searchKeyword
     ) {
+      pageInfo {
+        ...pageInfoFields
+      }
       edges {
         node {
           ...repositoryFields
@@ -20,6 +25,7 @@ export const GET_REPOSITORIES = gql`
     }
   }
   ${REPOSITORY_FRAGMENT}
+  ${PAGE_INFO_FRAGMENT}
 `;
 
 export const GET_USER = gql`
@@ -61,7 +67,11 @@ export const GET_REPOSITORY = gql`
             }
           }
         }
+        pageInfo {
+          ...pageInfoFields
+        }
       }
     }
   }
+  ${PAGE_INFO_FRAGMENT}
 `;
