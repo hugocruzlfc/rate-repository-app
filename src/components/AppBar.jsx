@@ -53,6 +53,10 @@ const AppBar = () => {
               path="/create-review"
             />
             <AppBarTap
+              label="My Reviews"
+              path="/my-reviews"
+            />
+            <AppBarTap
               label="About Us"
               path="/about"
             />

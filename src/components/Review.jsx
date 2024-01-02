@@ -47,7 +47,9 @@ export const Review = ({ review }) => {
     <View style={styles.container}>
       <CustomText style={styles.rate}>{review.rating}</CustomText>
       <View style={styles.bodyContainer}>
-        <CustomText style={styles.name}>{review.user.username}</CustomText>
+        <CustomText style={styles.name}>
+          {review?.user?.username ?? review.repository.fullName}
+        </CustomText>
         <CustomText style={styles.date}>{formatDate}</CustomText>
         <CustomText style={styles.text}>{review.text}</CustomText>
       </View>

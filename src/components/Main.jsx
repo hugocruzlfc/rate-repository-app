@@ -11,6 +11,7 @@ import {
   RepositoryDetail,
   CreateReview,
   SignUp,
+  MyReviews,
 } from "../pages";
 
 const styles = StyleSheet.create({
@@ -59,6 +60,10 @@ const Main = () => {
         <Route
           path="/create-review"
           element={<CreateReview />}
+        />
+        <Route
+          path="/my-reviews"
+          element={<MyReviews />}
         />
         <Route
           path="/logout"

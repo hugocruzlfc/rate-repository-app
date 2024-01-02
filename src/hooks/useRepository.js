@@ -9,8 +9,6 @@ export const useRepository = (repositoryId) => {
     variables: { first: LOAD_LIMIT, id: repositoryId },
   });
 
-  console.log(data);
-
   const handleFetchMore = () => {
     const canFetchMore =
       !loading && data && data.repository.reviews.pageInfo.hasNextPage;

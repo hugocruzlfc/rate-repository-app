@@ -13,7 +13,7 @@ export const useAuthStorage = () => {
 };
 
 export const AuthStorageProvider = ({ children }) => {
-  const { data, loading, client } = useMe();
+  const { data, loading, client, fetchMore } = useMe();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -27,12 +27,17 @@ export const AuthStorageProvider = ({ children }) => {
     client.resetStore();
   };
 
+  const onEndReach = () => {
+    fetchMore();
+  };
+
   return (
     <AuthStorageContext.Provider
       value={{
         user,
         loading,
         handleLogout,
+        onEndReach,
       }}
     >
       {children}

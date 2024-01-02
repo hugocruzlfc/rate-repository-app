@@ -21,6 +21,7 @@ export const GET_REPOSITORIES = gql`
         node {
           ...repositoryFields
         }
+        cursor
       }
     }
   }
@@ -41,12 +42,21 @@ export const GET_USER = gql`
             repository {
               ...repositoryFields
             }
+            id
+            text
+            rating
+            createdAt
           }
+          cursor
+        }
+        pageInfo {
+          ...pageInfoFields
         }
       }
     }
   }
   ${REPOSITORY_FRAGMENT}
+  ${PAGE_INFO_FRAGMENT}
 `;
 
 export const GET_REPOSITORY = gql`
@@ -66,6 +76,7 @@ export const GET_REPOSITORY = gql`
               username
             }
           }
+          cursor
         }
         pageInfo {
           ...pageInfoFields
